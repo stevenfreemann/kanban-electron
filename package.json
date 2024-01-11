@@ -1,8 +1,8 @@
 {
-  "name": "electron-amarilo",
-  "version": "0.1.27",
+  "name": "electron-kanban",
+  "version": "0.0.1",
   "private": true,
-  "main": "public/electron.ts",
+  "main": "public/electron.js",
   "homepage": "./",
   "author": {
     "name": "Ekoomedia",
@@ -29,9 +29,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "concurrently -k \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tcs -p electronmon .\"",
-    "electron:package:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.ts",
-    "electron:package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.ts",
-    "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.ts",
+    "electron:package:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js",
     "electron:publish": "yarn build && electron-builder -w --publish always"
   },
   "eslintConfig": {
@@ -66,7 +66,7 @@
       {
         "provider": "github",
         "owner": "stevenfreemann",
-        "repo": "electron-kanban"
+        "repo": "kanban_electron"
       }
     ],
     "npmRebuild": false,
