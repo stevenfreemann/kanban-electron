@@ -1,0 +1,90 @@
+{
+  "name": "electron-amarilo",
+  "version": "0.1.27",
+  "private": true,
+  "main": "public/electron.ts",
+  "homepage": "./",
+  "author": {
+    "name": "Ekoomedia",
+    "email": "s.rodriguez@ekoomedia.co"
+  },
+  "description": "Amarilo electron",
+  "dependencies": {
+    "@types/react-beautiful-dnd": "^13.1.8",
+    "antd": "^5.12.8",
+    "dotenv": "^16.0.1",
+    "electron-forge": "^5.2.4",
+    "electron-is-dev": "^2.0.0",
+    "electron-updater": "^4.6.5",
+    "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "6.21.1",
+    "react-scripts": "5.0.1",
+    "typescript": "4.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "concurrently -k \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tcs -p electronmon .\"",
+    "electron:package:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.ts",
+    "electron:package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.ts",
+    "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.ts",
+    "electron:publish": "set GH_TOKEN=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 && yarn build && electron-builder -w --publish always"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "last 1 electron version"
+    ],
+    "development": [
+      "last 1 electron version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-dom": "^18.2.18",
+    "@types/react-router-dom": "^5.3.3",
+    "concurrently": "^7.3.0",
+    "cross-env": "^7.0.3",
+    "electron": "^20.0.1",
+    "electron-builder": "^23.3.3",
+    "electronmon": "^2.0.2",
+    "wait-on": "^6.0.1"
+  },
+  "build": {
+    "appId": "com.electron.kanban",
+    "productName": "Kanban",
+    "copyright": "kanban",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "stevenfreemann",
+        "repo": "electron-kanban"
+      }
+    ],
+    "npmRebuild": false,
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
