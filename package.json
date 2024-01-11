@@ -32,7 +32,7 @@
     "electron:package:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.ts",
     "electron:package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.ts",
     "electron:package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.ts",
-    "electron:publish": "set GH_TOKEN=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 && yarn build && electron-builder -w --publish always"
+    "electron:publish": "yarn build && electron-builder -w --publish always"
   },
   "eslintConfig": {
     "extends": [
